@@ -1,0 +1,1 @@
+export const TEST_REDUX_CONFIG = 'TEST_REDUX_CONFIG'

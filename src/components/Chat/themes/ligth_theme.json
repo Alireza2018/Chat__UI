@@ -1,0 +1,22 @@
+{
+    "backgroundColor": "#fff",
+    "border": {
+        "color": "#ccddd9"
+    },
+    "colors": {
+        "primary": "#7e9aa6",
+        "secondary": "#f2f3f3",
+        "success": "#15c26b",
+        "danger": "#ff7643",
+        "previewHover": "#f8f9fa"
+    },
+    "buttons": {
+        "primary": "#7d9aa6",
+        "simple": "#2b3643",
+        "transparent": "#222d39"
+    },
+    "activeGroup": {
+        "background": "#e4f7fb",
+        "color": "#248d82"
+    }
+}

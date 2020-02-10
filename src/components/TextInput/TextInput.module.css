@@ -1,0 +1,68 @@
+.wrapper {
+  box-sizing: border-box;
+}
+
+.label {
+  font-family: sans-serif;
+  color: #fff
+}
+
+.errorMsg {
+  height: max-content;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  padding: 0.5em;
+  background-color: #7d9aa6;
+  color: #ffffff;
+  border-radius: 6px;
+} 
+
+.input {
+  display: block;
+  box-sizing: border-box;
+  color: #000;
+  opacity: 0.7;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.input:focus {
+  outline: none;
+  background-color: transparent;
+  /* border: 1px solid #4694b6;
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75); */
+}
+
+.input::placeholder {
+  color: #000;
+  opacity: 0.7;
+}
+/* 
+@media (max-width: 767px) {
+  .input {
+    width: 70%;
+  }
+  .errorMsg {
+    width: 70%;
+  }
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+}
+
+@media (min-width: 60em) {
+  .input {
+    width: 100%;
+  }
+  .errorMsg {
+    width: 100%;
+  }
+}
+
+@media (min-width: 97.5em) {
+} */

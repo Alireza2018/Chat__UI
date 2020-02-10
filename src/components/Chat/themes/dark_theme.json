@@ -1,0 +1,15 @@
+{
+    "wrapper": {
+        "background": "#181b24"
+    },
+    "colors": {
+        "primary": "#0070f3",
+        "success": "#15c26b",
+        "danger": "#ff7643"
+    },
+    "buttons": {
+        "primary": "#15c26b",
+        "simple": "#2b3643",
+        "transparent": "#222d39"
+    } 
+}
