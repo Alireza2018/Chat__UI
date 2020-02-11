@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useChat } from '../react-chat'
-import { Card, Image, PdfPreview } from './message-preview'
+import { Card, Image, PdfPreview } from './preview'
 
 export const ChatMessages = styled.div`
     padding: 16px 24px;
@@ -10,18 +10,20 @@ export const ChatMessages = styled.div`
 `
 
 const Messages = () => {
-    const { messages } = useChat()
+    const { chat, conversations} = useChat()
     return(
         <ChatMessages>
             {
-                messages.map( (message, idx) => {
-                    return(
-                        <Card key={idx}>
-                            { message.type === 'image' && <Image src={message.content} /> }
-                            { message.type === 'text' && <>{message.content}</> }
-                            { message.type === 'pdf' && <>it's a pdf file</> }
-                        </Card>
-                    )
+                conversations
+                    .filter(conversation => conversation.chatId === chat.id)
+                    .map( (conversations, idx) => {
+                        return(
+                            <Card key={idx}>
+                                { conversations.type === 'image' && <Image src={conversations.content} /> }
+                                { conversations.type === 'text' && <>{conversations.content}</> }
+                                { conversations.type === 'pdf' && <>it's a pdf file</> }
+                            </Card>
+                        )
                 })
             }
         </ChatMessages>

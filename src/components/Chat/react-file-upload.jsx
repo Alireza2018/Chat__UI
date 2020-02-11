@@ -5,7 +5,7 @@ const textTypes = ['doc', 'docx', 'pdf', 'txt']
 const imageTypes = ['jpg', 'jpeg', 'png']
 
 export const useUploader = props => {
-    const { sendMessage } = useChat()
+    const { chat, sendMessage } = useChat()
     const [extError, setExtError] = useState()
     const allowedTypes = useRef()
 
@@ -26,12 +26,13 @@ export const useUploader = props => {
             const reader = new FileReader();
             reader.readAsDataURL(file)
             reader.onload = e => {
+                console.log(chat.id)
                 if(imageTypes.indexOf(loweredCaseExt) !== -1) {
-                    sendMessage({ message : { type: 'image', name: name , content: e.target.result } })
+                    sendMessage({ message : { chatId: chat.id, type: 'image', name: name , content: e.target.result } })
                 }
                 else if(textTypes.indexOf(loweredCaseExt) !== -1) {
                     console.log(loweredCaseExt)
-                    sendMessage({ message : { type: loweredCaseExt, name: name , content: '' } })
+                    sendMessage({ message : { chatId: chat.id, type: loweredCaseExt, name: name , content: '' } })
                 }
             }
         }

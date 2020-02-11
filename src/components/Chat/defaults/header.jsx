@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useChat } from '../react-chat'
-import {ChatAvatar, ChatDetails, Button} from './shared-components'
+import Toggle from './toggle' 
+import {ChatAvatar, ChatDetails } from './shared'
 
 const ChatHeader = styled.div`
     width: 100%;
@@ -16,20 +17,22 @@ const ChatHeader = styled.div`
 const Div = styled.div`
     display: flex;
     align-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
 `
 
 const Header = () => {
-    const { group } = useChat()
+    const { chat } = useChat()
     return(
         <ChatHeader>
             <Div>
-                <ChatAvatar src={group.image}/>
+                <ChatAvatar src={chat.image}/>
                 <ChatDetails bold>
-                    {group.name}
+                    {chat.name}
                 </ChatDetails>
             </Div>
             <Div>
-                <Button>dark theme</Button>
+                <Toggle/>تغییر زمینه
             </Div>
             
         </ChatHeader>

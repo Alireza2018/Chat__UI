@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import MaterialIcon from 'material-icons-react';
-//Import themes 
-import ligth from './themes/ligth_theme.json'
-import dark from './themes/dark_theme.json' 
+import MaterialIcon from 'material-icons-react'
 //Import custom hook
 import { useChat } from './react-chat' 
 import { useUploader } from './react-file-upload' 
 //Import componets
-import { ChatActions, InputBox, Button } from './defaults/shared-components'
-import ChatList from './defaults/chat-list'
+import { ChatActions, InputBox, Button } from './defaults/shared'
+import ChatList from './defaults/list'
 import ChatHeader from './defaults/header'
 import ChatMessages from './defaults/messages'
 import TextInput from '../TextInput'
@@ -32,10 +29,9 @@ const ChatLayout = props => {
     const initialData = {message: ''}
     //My custom hooks
     const { openFileDialog } = useUploader()
-    const { group, sendMessage } = useChat()
+    const { theme, chat, sendMessage } = useChat()
     //Component state
     const [data, setData] = useState(initialData)
-    const [theme, setTheme] = useState(ligth)
 
     const handleChange = event => {
         let newData = { ...data }
@@ -44,7 +40,7 @@ const ChatLayout = props => {
     }
     const handleKeyPress = event => {
         if (event.key === 'Enter') {
-            sendMessage({ message : { type: 'text', content: data.message } })
+            sendMessage({ message : { chatId: chat.id, type: 'text', content: data.message } })
             setData(initialData)
         }
     }
@@ -54,7 +50,7 @@ const ChatLayout = props => {
             <Wrapper>
                 <ChatList/>
                 <Content>
-                    <ChatHeader group={group}/>
+                    <ChatHeader/>
                     <ChatMessages/>
                     <ChatActions>
                         <InputBox width="70%">

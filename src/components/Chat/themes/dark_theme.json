@@ -1,6 +1,7 @@
 {
-    "wrapper": {
-        "background": "#181b24"
+    "backgroundColor": "#181b24",
+    "border": {
+        "color": "#ccddd9"
     },
     "colors": {
         "primary": "#0070f3",
@@ -11,5 +12,9 @@
         "primary": "#15c26b",
         "simple": "#2b3643",
         "transparent": "#222d39"
-    } 
+    },
+    "activeGroup": {
+        "background": "#e4f7fb",
+        "color": "#248d82"
+    }
 }

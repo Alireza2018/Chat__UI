@@ -1,35 +1,42 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
+//Import themes 
+import ligth from './themes/ligth_theme.json'
+import dark from './themes/dark_theme.json' 
 
 export const ChatContext = React.createContext()
 export const useChat = () => useContext(ChatContext)
 export const ChatProvider = ({
     owner,
-    groups,
+    chats,
     children,
     ...props
 }) => {
-    const [group, setGroup] = useState(groups[0])
-    const [messages, setMessages] = useState(group.messages)
-    useEffect( () => {
-        
-    }, [group])
+    const [theme, setTheme] = useState(ligth)
+    const [chat, setChat] = useState(chats[0])
+    const [conversations, setConversations] = useState([])
 
-    const onSelectGroup = group => {
-        setGroup(group)
+    const changeTheme = theme => {
+        setTheme(theme ? ligth : dark)
+    }
+
+    const onSelectChat = chat => {
+        setChat(chat)
     }
 
     const sendMessage = ({ message }) => {
-        setMessages(messages => [...messages, message])
+        setConversations(conversations => [...conversations, message])
     }
 
     return (
         <ChatContext.Provider
             value={{
+                theme,
                 owner,
-                groups,
-                group,
-                messages,
-                onSelectGroup,
+                chats,
+                chat,
+                conversations,
+                changeTheme,
+                onSelectChat,
                 sendMessage
             }}
         >

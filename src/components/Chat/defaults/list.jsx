@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useChat } from '../react-chat'
-import {ChatItem, ChatAvatar, ChatDetails, InputBox} from './shared-components'
+import {ChatItem, ChatAvatar, ChatDetails, InputBox} from './shared'
 import TextInput from '../../TextInput'
 
 const ChatList = styled.div`
@@ -30,11 +30,11 @@ const Owner = styled.div`
 `
 
 const List = () => {
-    const { owner, groups, group, onSelectGroup } = useChat()
-    const [index, setIndex] = useState(group.id)
-    const handleClickItem = group => {
-        setIndex(group.id)
-        onSelectGroup(group)
+    const { owner, chats, chat, onSelectChat } = useChat()
+    const [index, setIndex] = useState(chat.id)
+    const handleClickItem = chat => {
+        setIndex(chat.id)
+        onSelectChat(chat)
     }
 
     return(
@@ -57,14 +57,14 @@ const List = () => {
             </Owner>
             
             {
-                groups.map( (group, idx) => (
+                chats.map( (chat, idx) => (
                     <ChatItem 
                         key={idx}
-                        onClick={() => handleClickItem(group)}
-                        isActive={(group.id === index) ? true : false}
+                        onClick={() => handleClickItem(chat)}
+                        isActive={(chat.id === index) ? true : false}
                     >
                         <ChatDetails>
-                            {group.name}
+                            {chat.name}
                         </ChatDetails>
                     </ChatItem>
                 ))

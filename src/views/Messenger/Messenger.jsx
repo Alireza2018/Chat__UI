@@ -5,20 +5,20 @@ import { normalize, schema } from 'normalizr';
 import { ChatProvider } from '../../components/Chat/react-chat'
 import ChatLayout from '../../components/Chat/ChatLayout'
 
-const groups = [
+const chats = [
     {
       id: 1, 
       name: 'cool name', 
       lastMsg: 'I am very cool', 
       image: 'https://via.placeholder.com/150',
-      messages: [] 
+      conversationsId: '11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000' 
     },
     {
       id: 2, 
       name: 'another cool name', 
       lastMsg: 'I am super ool', 
       image: 'https://via.placeholder.com/150',
-      messages: [] 
+      conversationsId: '75442486-0878-440c-9db1-a7006c25a39f'
     }
 ]
 
@@ -28,7 +28,7 @@ const Messenger = () => {
     
     return(
         <ChatProvider 
-          groups={groups}
+          chats={chats}
           owner={owner}
         >
           <ChatLayout/>
